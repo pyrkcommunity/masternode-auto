@@ -8,7 +8,7 @@ https://github.com/pyrkcommunity/pyrk/releases/download/v0.12.3.4/pyrk-0.12.3-li
 
 FILE_BIN="pyrk-0.12.3-linux64.tar.gz"
 BIN_DOWN="https://github.com/pyrkcommunity/pyrk/releases/download/v0.12.3.4/${FILE_BIN}"
-#GIT_SENT="https://github.com/zcore-coin/sentinel.git"
+#GIT_SENT="https://github.com/pyrkcommunity/sentinel.git"
 FOLDER_BIN="./"
 
 
@@ -518,14 +518,7 @@ EOF
 }
 
 function install_sentinel() {
-	runuser -l worker01 -c 'cd /home/worker01/'
-	runuser -l worker01 -c "git clone ${GIT_SENT} /home/worker01/sentinel-pyrk"
-	runuser -l worker01 -c 'virtualenv /home/worker01/sentinel-pyrk/venv'
-	runuser -l worker01 -c '/home/worker01/sentinel-pyrk/venv/bin/pip install -r /home/worker01/sentinel-pyrk/requirements.txt'
-	runuser -l worker01 -c 'crontab -l > mycron'
-	runuser -l worker01 -c 'echo "* * * * * cd /home/worker01/sentinel-pyrk && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1" >> mycron'
-	runuser -l worker01 -c 'crontab mycron'
-	runuser -l worker01 -c 'rm mycron'
+	wget https://raw.githubusercontent.com/pyrkcommunity/sentinel/master/sentinel-one-line-installer.sh && chmod +x sentinel-one-line-installer.sh && ./sentinel-one-line-installer.sh
 }
 
 
@@ -549,7 +542,7 @@ function setup_node() {
 	create_key
 	update_config
 	enable_firewall
-	#install_sentinel
+	install_sentinel
 	systemd_up
 	resumen
 }
