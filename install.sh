@@ -4,10 +4,8 @@ TMP_FOLDER=$(mktemp -d)
 NAME_COIN="Pyrk"
 GIT_REPO="https://github.com/pyrkcommunity/pyrk.git"
 
-https://github.com/pyrkcommunity/pyrk/releases/download/v0.12.3.4/pyrk-0.12.3-linux64.tar.gz
-
-FILE_BIN="pyrk-0.12.3-linux64.tar.gz"
-BIN_DOWN="https://github.com/pyrkcommunity/pyrk/releases/download/v0.12.3.4/${FILE_BIN}"
+FILE_BIN="pyrk-0.12.4-linux64.tar.gz"
+BIN_DOWN="https://github.com/pyrkcommunity/pyrk/releases/download/v0.12.4.1/${FILE_BIN}"
 #GIT_SENT="https://github.com/pyrkcommunity/sentinel.git"
 FOLDER_BIN="./"
 
